@@ -66,7 +66,7 @@ public class PrintPrimes {
     public void printPrimes() {
         int pageNumber = 1;
         int pageOffset = 1;
-        while (PAGEOFFSET <= numberOfPrimes) {
+        while (pageOffset <= numberOfPrimes) {
           System.out.println("The First " + numberOfPrimes +
                                " Prime Numbers --- Page " + pageNumber);
           System.out.println("");

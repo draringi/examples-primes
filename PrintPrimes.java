@@ -1,7 +1,7 @@
 public class PrintPrimes {
   int numberOfPrimes;
   int rowsPerPage;
-  int columns;
+  int 	umns;
   int WW;
   int maxOrder;
   int listOfPrimes[];
@@ -71,14 +71,14 @@ public class PrintPrimes {
                                " Prime Numbers --- Page " + pageNumber);
           System.out.println("");
           for (int rowOffset = pageOffset; rowOffset < pageOffset + rowsPerPage; rowOffset++){
-            for (int col = 0; i < columns;i++)
+            for (int col = 0; col < columns;col++)
               if (rowOffset + col * rowsPerPage <= numberOfPrimes)
                 System.out.format("%10d", listOfPrimes[rowOffset + col * rowsPerPage]);
             System.out.println("");
           }
           System.out.println("\f");
           pageNumber++;
-          pageOffset = pageOffset + rowsPerPage * collumns;
+          pageOffset = pageOffset + rowsPerPage * columns;
         }
     }
 }

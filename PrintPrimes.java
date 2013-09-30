@@ -2,22 +2,20 @@ public class PrintPrimes {
   int numberOfPrimes;
   int rowsPerPage;
   int columns;
-  int WW;
   int maxOrder;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columns, int WW, int maxOrder) {
+  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columns, int maxOrder) {
     this.numberOfPrimes   = numberOfPrimes;
     this.rowsPerPage  = rowsPerPage;
     this.columns  = columns;
-    this.WW  = WW;
     this.maxOrder = maxOrder;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
 
 
   public static void main(String[] args) {
-      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4, 10, 30);
+      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4, 30);
       printPrimes.calculatePrimes();
       printPrimes.printPrimes();
   }

@@ -77,7 +77,7 @@ public class PrintPrimes {
             System.out.println("");
           }
           System.out.println("\f");
-          pageNumber = pageNumber + 1;
+          pageNumber++;
           pageOffset = pageOffset + RR * CC;
         }
     }

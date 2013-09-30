@@ -41,9 +41,9 @@ public class PrintPrimes {
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          j = j + 2;
+          j += 2;
           if (j == square) {
-            order = order + 1;
+            order++;
             square = listOfPrimes[order] * listOfPrimes[order];
             mult[order - 1] = j;
           }
@@ -54,7 +54,7 @@ public class PrintPrimes {
               mult[n] = mult[n] + listOfPrimes[n] + listOfPrimes[n];
             if (mult[n] == j)
               jPrime = false;
-            n = n + 1;
+            n++;
           }
         } while (!jPrime);
         listOfPrimes[primesFoundSoFar] = j	;

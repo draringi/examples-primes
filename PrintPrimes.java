@@ -1,15 +1,15 @@
 public class PrintPrimes {
   int numberOfPrimes;
   int rowsPerPage;
-  int collumns;
+  int columns;
   int WW;
   int maxOrder;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int collumns, int WW, int maxOrder) {
+  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columns, int WW, int maxOrder) {
     this.numberOfPrimes   = numberOfPrimes;
     this.rowsPerPage  = rowsPerPage;
-    this.collumns  = collumns;
+    this.columns  = columns;
     this.WW  = WW;
     this.maxOrder = maxOrder;
     this.listOfPrimes = new int[numberOfPrimes + 1];
@@ -71,9 +71,9 @@ public class PrintPrimes {
                                " Prime Numbers --- Page " + pageNumber);
           System.out.println("");
           for (int rowOffset = pageOffset; rowOffset < pageOffset + rowsPerPage; rowOffset++){
-            for (int i = 0; i < collumns;i++)
-              if (rowOffset + i * rowsPerPage <= numberOfPrimes)
-                System.out.format("%10d", listOfPrimes[rowOffset + i * rowsPerPage]);
+            for (int col = 0; i < columns;i++)
+              if (rowOffset + col * rowsPerPage <= numberOfPrimes)
+                System.out.format("%10d", listOfPrimes[rowOffset + col * rowsPerPage]);
             System.out.println("");
           }
           System.out.println("\f");

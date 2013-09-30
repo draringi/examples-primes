@@ -31,33 +31,33 @@ public class PrintPrimes {
   }
 
   private void calculateOddPrimes() {
-      boolean JPRIME;
-      int N;
-      int MULT[] = new int[maxOrder + 1];
+      boolean jPrime;
+      int n;
+      int mult[] = new int[maxOrder + 1];
 
-      int J = 1;
+      int j = 1;
       int order = 2;
       int square = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          J = J + 2;
-          if (J == square) {
+          j = j + 2;
+          if (j == square) {
             order = order + 1;
             square = listOfPrimes[order] * listOfPrimes[order];
-            MULT[order - 1] = J;
+            mult[order - 1] = j;
           }
-          N = 2;
-          JPRIME = true;
-          while (N < order && JPRIME) {
-            while (MULT[N] < J)
-              MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-            if (MULT[N] == J)
-              JPRIME = false;
-            N = N + 1;
+          n = 2;
+          jPrime = true;
+          while (n < order && jPrime) {
+            while (mult[n] < j)
+              mult[n] = mult[n] + listOfPrimes[n] + listOfPrimes[n];
+            if (mult[n] == j)
+              jPrime = false;
+            n = n + 1;
           }
-        } while (!JPRIME);
-        listOfPrimes[primesFoundSoFar] = J;
+        } while (!jPrime);
+        listOfPrimes[primesFoundSoFar] = j	;
       }
     }
 

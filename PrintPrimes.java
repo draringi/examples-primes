@@ -1,7 +1,7 @@
 public class PrintPrimes {
   int numberOfPrimes;
   int rowsPerPage;
-  int 	umns;
+  int columns;
   int WW;
   int maxOrder;
   int listOfPrimes[];

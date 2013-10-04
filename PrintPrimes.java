@@ -34,10 +34,13 @@ public class PrintPrimes {
         calculateOddPrimes();
     }
 
+    /**
+     * Helper method that calculates the odd primes using a sieve
+     */
     private void calculateOddPrimes() {
         boolean jPrime;
         int n;
-        int mult[] = new int[maxOrder + 1];
+        int listOfNonPrimes[] = new int[maxOrder + 1];
   
         int j = 1;
         int order = 2;
@@ -49,13 +52,13 @@ public class PrintPrimes {
                 if (j == square) {
                     order++;
                     square = listOfPrimes[order] * listOfPrimes[order];
-                    mult[order - 1] = j;
+                    listOfNonPrimes[order - 1] = j;
                 }
                 n = 2;
                 jPrime = true;
                 while (n < order && jPrime) {
-                    while (mult[n] < j) {
-                        mult[n] = mult[n] + listOfPrimes[n] + listOfPrimes[n];
+                    while (listOfNonPrimes[n] < j) {
+                        listOfNonPrimes[n] = listOfNonPrimes[n] + listOfPrimes[n] + listOfPrimes[n];
                     }
                     if (mult[n] == j) {
                         jPrime = false;

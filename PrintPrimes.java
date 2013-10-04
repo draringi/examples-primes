@@ -51,14 +51,14 @@ public class PrintPrimes {
                 j += 2;
                 if (j == square) {
                     order++;
-                    square = listOfPrimes[order] * listOfPrimes[order];
+                    square = listOfPrimes[order - 1] * listOfPrimes[order - 1];
                     listOfNonPrimes[order - 1] = j;
                 }
                 n = 2;
                 jPrime = true;
                 while (n < order && jPrime) {
                     while (listOfNonPrimes[n] < j) {
-                        listOfNonPrimes[n] = listOfNonPrimes[n] + listOfPrimes[n] + listOfPrimes[n];
+                        listOfNonPrimes[n] = listOfNonPrimes[n] + listOfPrimes[n - 1] + listOfPrimes[n - 1];
                     }
                     if (mult[n] == j) {
                         jPrime = false;

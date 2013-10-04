@@ -39,6 +39,9 @@ public class PrintPrimes {
     }
 
     private boolean isPrime(int order, int val) {
+        /* Helper function that checks if a number is a prime,
+         * while updating the list of nonPrimes.
+         */
         int n = 2;
         boolean prime;
 
@@ -55,10 +58,11 @@ public class PrintPrimes {
         return prime;
     }
 
-    /**
-     * Helper method that calculates the odd primes using a sieve
-     */
+
     private void calculateOddPrimes() {
+        /* Helper method that calculates the odd primes using a sieve.
+         * Actual checking if a number is a prime occurs in the isPrime function
+         */
         int j = 1;
         int order = 2;
         int square = 9;

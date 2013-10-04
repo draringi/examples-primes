@@ -14,7 +14,7 @@ public class PrintPrimes {
         this.rowsPerPage  = rowsPerPage;
         this.columns  = columns;
         this.maxOrder = maxOrder;
-        this.listOfPrimes = new int[numberOfPrimes + 1];
+        this.listOfPrimes = new int[numberOfPrimes];
     }
 
 
@@ -30,7 +30,7 @@ public class PrintPrimes {
          * delegate the task of finding all odd prime numbers to a helper
          * function.
          */
-        listOfPrimes[1] = 2;
+        listOfPrimes[0] = 2;
         calculateOddPrimes();
     }
 
@@ -43,7 +43,7 @@ public class PrintPrimes {
         int order = 2;
         int square = 9;
 
-        for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
+        for(int primesFoundSoFar = 1; primesFoundSoFar < numberOfPrimes; primesFoundSoFar++) {
             do {
                 j += 2;
                 if (j == square) {
@@ -69,14 +69,14 @@ public class PrintPrimes {
 
     public void printPrimes() {
         int pageNumber = 1;
-        int pageOffset = 1;
+        int pageOffset = 0;
         while (pageOffset <= numberOfPrimes) {
             System.out.println("The First " + numberOfPrimes +
                                " Prime Numbers --- Page " + pageNumber);
             System.out.println("");
             for (int rowOffset = pageOffset; rowOffset < pageOffset + rowsPerPage; rowOffset++){
                 for (int col = 0; col < columns;col++) {
-                    if (rowOffset + col * rowsPerPage <= numberOfPrimes) {
+                    if (rowOffset + col * rowsPerPage < numberOfPrimes) {
                         System.out.format("%10d", listOfPrimes[rowOffset + col * rowsPerPage]);
                     }
                 }

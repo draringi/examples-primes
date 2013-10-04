@@ -5,7 +5,7 @@ public class PrintPrimes {
   int maxOrder;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columns, int maxOrder) {
+  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columns, int placeholder, int maxOrder) {
     this.numberOfPrimes   = numberOfPrimes;
     this.rowsPerPage  = rowsPerPage;
     this.columns  = columns;
@@ -15,7 +15,7 @@ public class PrintPrimes {
 
 
   public static void main(String[] args) {
-      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4, 30);
+      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4, 10, 30);
       printPrimes.calculatePrimes();
       printPrimes.printPrimes();
   }

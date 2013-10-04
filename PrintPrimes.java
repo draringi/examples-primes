@@ -1,6 +1,8 @@
 /**
- * This class calculates a number of primes no higher than a set order,
- * and no more than a set amount of them.
+ * This class calculates a number of primes
+ * using a sieve no higher than a set order,
+ * and returning no more than a set amount
+ * of prime numbers.
  */
 public class PrintPrimes {
     int numberOfPrimes;
@@ -8,6 +10,7 @@ public class PrintPrimes {
     int columns;
     int maxOrder;
     int listOfPrimes[];
+    int listOfNonPrimes[];
 
     public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columns, int placeholder, int maxOrder) {
         this.numberOfPrimes   = numberOfPrimes;
@@ -15,6 +18,7 @@ public class PrintPrimes {
         this.columns  = columns;
         this.maxOrder = maxOrder;
         this.listOfPrimes = new int[numberOfPrimes];
+        this.listOfNonPrimes = new int[maxOrder + 1];
     }
 
 
@@ -34,14 +38,27 @@ public class PrintPrimes {
         calculateOddPrimes();
     }
 
+    private boolean isPrime(int order, int val) {
+        int n = 2;
+        boolean prime;
+
+        prime = true;
+        while (n < order && prime) {
+            while (listOfNonPrimes[n] < val) {
+                listOfNonPrimes[n] = listOfNonPrimes[n] + listOfPrimes[n - 1] + listOfPrimes[n - 1];
+            }
+            if (listOfNonPrimes[n] == val) {
+                prime = false;
+            }
+            n++;
+        }
+        return prime;
+    }
+
     /**
      * Helper method that calculates the odd primes using a sieve
      */
     private void calculateOddPrimes() {
-        boolean jPrime;
-        int n;
-        int listOfNonPrimes[] = new int[maxOrder + 1];
-  
         int j = 1;
         int order = 2;
         int square = 9;
@@ -54,18 +71,8 @@ public class PrintPrimes {
                     square = listOfPrimes[order - 1] * listOfPrimes[order - 1];
                     listOfNonPrimes[order - 1] = j;
                 }
-                n = 2;
-                jPrime = true;
-                while (n < order && jPrime) {
-                    while (listOfNonPrimes[n] < j) {
-                        listOfNonPrimes[n] = listOfNonPrimes[n] + listOfPrimes[n - 1] + listOfPrimes[n - 1];
-                    }
-                    if (listOfNonPrimes[n] == j) {
-                        jPrime = false;
-                    }
-                    n++;
-                }
-            } while (!jPrime);
+                
+            } while (!isPrime(order,j));
             listOfPrimes[primesFoundSoFar] = j	;
         }
     }

@@ -3,6 +3,8 @@
  * using a sieve no higher than a set order,
  * and returning no more than a set amount
  * of prime numbers.
+ *
+ * @author  Michael Williams (206369438)
  */
 public class PrintPrimes {
     int numberOfPrimes;

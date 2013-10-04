@@ -1,3 +1,7 @@
+/**
+ * This class calculates a number of primes no higher than a set order,
+ * and no more than a set amount of them.
+ */
 public class PrintPrimes {
     int numberOfPrimes;
     int rowsPerPage;

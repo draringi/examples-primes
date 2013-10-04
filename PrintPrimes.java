@@ -60,7 +60,7 @@ public class PrintPrimes {
                     while (listOfNonPrimes[n] < j) {
                         listOfNonPrimes[n] = listOfNonPrimes[n] + listOfPrimes[n - 1] + listOfPrimes[n - 1];
                     }
-                    if (mult[n] == j) {
+                    if (listOfNonPrimes[n] == j) {
                         jPrime = false;
                     }
                     n++;
